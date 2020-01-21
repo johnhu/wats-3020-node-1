@@ -7,15 +7,12 @@ let getargs = require("../modules/getargs/index.js");
 let input = getargs.getIntegerArg();
 
 /**** Do not modify anything above this line ****/
-
-// test that input is a number
-// TODO check input using isNaN and NOT Number.isInteger 
-if () {
-  // TODO use console.log to provide a usage statement when user forgets to enter a number
+if ( isNaN(input) || !Number.isInteger(input)) {
+  console.log("usage: node 4-hours-to-minutes/index.js <integer>");
 } else {
-  // TODO: create a variable named hours and calculate the whole number of hours using the / operator and .toFixed
-  // TODO: create a variable named minutes and calculate the number of minutes using the % (modulo) operator
-  // TODO: create a variable named hrs and use a ternary expression to determine whether there are singular or plural hours
-  // TODO: create a variable named mins and use a ternary expression to determine whether there are singular ot plural minutes
+  let hours = (input/60).toFixed();
+  let minutes = input % 60;
+  let hrs = (hours == 1) ? "hours" : "hour";
+  let mins = (minutes == 1) ? "minutes" : "minute";
   console.log(`${input} minutes is ${hours} ${hrs} ${minutes} ${mins} `)
 }
